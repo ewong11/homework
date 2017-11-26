@@ -1,0 +1,28 @@
+public class Teller
+{
+    public static void main(String[] args){
+    BankAccount bob = new BankAccount();
+    System.out.println("--------name change--------");
+    bob.setName("Bobby");
+    System.out.println(bob);
+    System.out.println("------password change----------");
+    bob.setPasswd("password");
+    System.out.println(bob);
+    System.out.println("--------pin change--------");
+    bob.setPin(5678);
+    System.out.println(bob);
+    System.out.println("--------acct num change--------");
+    bob.setAcctNum(234567890);
+    System.out.println(bob);
+    System.out.println("--------balance change--------");
+    bob.setBalance(30);
+    System.out.println(bob);
+    System.out.println("--------deposit money--------");
+    bob.deposit(10);
+    System.out.println(bob);
+    System.out.println("--------withdraw money--------");
+    bob.withdraw(20);
+    System.out.println(bob);
+    System.out.println("--------authenticate--------");
+    bob.auth(123, "hello");
+    }}

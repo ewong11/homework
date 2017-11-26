@@ -1,0 +1,10 @@
+public class Coin {
+    double value;
+    boolean upFace;
+    String name;
+    int flipCtr;
+    int headsCtr;
+    int tailsCtr;
+    double bias;
+    
+    public static void main(String[] args) {}

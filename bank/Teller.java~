@@ -1,0 +1,18 @@
+public class Teller
+{
+    public static void main(String[] args){
+    BankAccount bob = new BankAccount();
+    bob.setName("Bobby");
+    System.out.println(bob);
+    bob.setPasswd("password");
+    System.out.println(bob);
+    bob.setPin(5678);
+    System.out.println(bob);
+    bob.setAcctNum(234567890);
+    System.out.println(bob);
+    bob.setBalance(30);
+    System.out.println(bob);
+    bob.deposit(10);
+    System.out.println(bob);
+    bob.withdraw(20);
+    System.out.println(bob);

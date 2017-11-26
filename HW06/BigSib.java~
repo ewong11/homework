@@ -1,0 +1,11 @@
+public class BigSib {
+    private String helloMsg;
+    public static void main(String[] args) {}
+    public String  setHelloMsg(String newMsg) {}
+    public  String greet(String msg){
+	helloMsg = newMsg;
+	helloMsg += msg;
+	return helloMsg;
+	    }
+    
+}	

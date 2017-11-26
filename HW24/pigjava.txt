@@ -1,0 +1,112 @@
+/*
+  MattJackieInezDigit -- Maggie Zhao, Henry Carver, Eric Wong & rubber ducky
+  APCS1 pd02
+  HW24 -- Imetay Otay Ineshay
+  2017-10-29 S
+*/
+/***
+ * class Pig
+ * a Pig Latin translator
+ -----------------OUR TO-DO LIST---------------------------
+     
+ * a method to find the first punctuation 
+ - iterate through the string until we come upon a punctuation (',.)
+ - does punctuation affect the translation? (don't --> on'tday)     
+     
+ * a method to determine whether or not a y is a vowel
+ - check if the y is preceded or followed by a vowel (e.g. fly, spy, spyer, lying)
+    
+ * for compound words, each syllable/word is transcribed separately (e.g. birdhouse --> ird-bay-ouse-hay
+ 
+ ------------------------------------------------------------------------------------------------------------
+ SUMMARY
+ 
+ * implemented rules for when y is or is not a vowel
+ - counts y as a vowel when:
+                            a) it is not the first letter
+                            b) when it comes before another vowel
+                            c) if there are no vowels
+ *implemented method to deal with punctuation
+ - created a punctuation string similar to the vowels string to check if a string had punctuation
+ - added the punctuation to the end of the string
+ *implemented method to address capitalization
+ - checked if a string began with a capital letter
+ - if it did, we made the first letter of the return string capital as well
+ *implemented way to treat compound words (those separated by -) as separate words
+ ------------------------------------------------------------------------------------------------------------
+ ***/
+
+import java.util.Scanner;
+public class Pig
+{
+    //Q: How does this initialization make your life easier?
+    //A: It helps keep my code and my thoughts organized, which makes coding easier
+    //and makes us less prone to errors
+    private static final String VOWELS = "aeiou";
+    private static final String ENDPUNC = "!?.<>,:;";
+
+/* ==================================
+       pre: w.length() > 0
+       post: engToPig("apple")  --> "appleway"
+       engToPig("strong") --> "ongstray"
+       engToPig("java")   --> "avajay"
+       ====================================*/
+    
+    public static String engToPig(String x) {
+        String w = x.toLowerCase(); 
+        String restr = "";
+        int appender; 
+        String appended; 
+	String punctuation = "";
+	if (w.indexOf("-") != -1) {
+	    String first = x.substring(0, w.indexOf("-"));
+	    String second = x.substring(w.lastIndexOf("-") + 1);
+
+	    String compoundrestr = engToPig(first) + "-" + engToPig(second);
+	    return compoundrestr;
+	}
+	if (hasEndPunc(w)) {
+	    punctuation = w.substring(w.length()-1);
+	    w = w.substring(0, w.length()- 1);
+	}
+	// Case 1: does it begin with a vowel?
+        if (beginsWithVowel(w)) {
+	    appender = 0;
+	    appended = "way";
+	    restr =  w.substring(appender) + appended;
+	}
+	else if ((hasA(w, "y")&& (w.indexOf("y") != 0)) && (firstVowel(w).equals("") || (w.indexOf("y") < w.indexOf(firstVowel(w)))))
+	    {
+		appender = w.indexOf("y");
+		appended = w.substring(0, appender);
+		restr = w.substring(appender) + appended + "ay";
+	    }
+        
+	else if ((w.indexOf("qu")) != -1 ) {
+	    appender = w.indexOf("qu");
+	    appended = w.substring(0, appender); 
+	    restr = w.substring(appender + 2) + appended +  "quay";
+	}
+	
+	else {
+	    appender = w.indexOf(firstVowel(w)); //finds the first vowel
+	    appended = w.substring(0, appender); //takes all the consonants (sounds) before the vowel, and turns it into a separate string the consonant sounds
+	    restr = w.substring(appender) + appended + "ay" ;
+	}
+	restr = restr + punctuation;
+        if (Character.isUpperCase(x.charAt(0))) {
+	    restr = restr.substring(0,1).toUpperCase() + restr.substring(1);
+	}
+	else {
+	    restr = restr.substring(0,1) + restr.substring(1);
+	}
+	return restr; 
+    }
+public static void main( String[] args ) 
+    {
+	Scanner sc = new Scanner(System.in);
+	while(sc.hasNext()) {
+	    System.out.println(engToPig(sc.next()));
+	}
+    }//end main()
+}//end class Pig
