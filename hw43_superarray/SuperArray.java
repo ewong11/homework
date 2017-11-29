@@ -1,10 +1,11 @@
 // Clyde "Thluffy" Sinclair
 // APCS1 pd0
-// HW42 -- expanding SuperArray functionality, encapsulation
-// 2017-11-29w
+// HW43 -- adhering to a published standard (implementing an interface)
+// 2017-11-30r
 
 /***************************
- * class SuperArray version 2.0
+ * class SuperArray version 3.0
+ * ( SKELETON )
  * Wrapper class for array. Facilitates resizing,
  * resizing
  * expansion
@@ -12,6 +13,9 @@
  * adding an element to end of array
  * adding an element at specified index
  * removing an element at specified index
+ *
+ * ...and now SuperArray complies with the specifications of the
+ * ListInt interface. (ListInt.java must be in same dir as this file)
  ***************************/
 
 public class SuperArray
@@ -84,13 +88,11 @@ public class SuperArray
     //first expand if necessary
     if ( _size >= _data.length )
       expand();
-    else {
       for( int i = _size; i > index; i-- ) {
         _data[i] = _data[i-1]; //each slot gets value of left neighbor
       }
       _data[index] = newVal;
       _size++;
-    }
   }
 
 
@@ -117,26 +119,8 @@ public class SuperArray
   //main method for testing
   public static void main( String[] args )
   {
-    SuperArray curtis = new SuperArray();
-    System.out.println( "Printing empty SuperArray curtis..." );
-    System.out.println( curtis );
-
-    for( int i = 0; i < curtis._data.length; i++ ) {
-      curtis.set( i, i * 2 );
-    }
-
-    System.out.println("Printing populated SuperArray curtis...");
-    System.out.println(curtis);
-
-    for( int i = 0; i < 3; i++ ) {
-      curtis.expand();
-      System.out.println("Printing expanded SuperArray curtis...");
-      System.out.println(curtis);
-      System.out.println("new length of underlying array: "
-                         + curtis._data.length );
-    }
-
-    SuperArray mayfield = new SuperArray();
+    /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
+    ListInt mayfield = new SuperArray();
     System.out.println("Printing empty SuperArray mayfield...");
     System.out.println(mayfield);
 
@@ -165,9 +149,40 @@ public class SuperArray
     mayfield.add(1,77);
     System.out.println("Printing SuperArray mayfield post-insert...");
     System.out.println(mayfield);
-    /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~*/
   }//end main()
 
 
 }//end class
+
+
+/***
+             ,,########################################,,
+          .*##############################################*
+        ,*####*:::*########***::::::::**######:::*###########,
+      .*####:    *#####*.                 :*###,.#######*,####*.
+     *####:    *#####*                      .###########*  ,####*
+  .*####:    ,#######,                        ##########*    :####*
+  *####.    :#########*,                       ,,,,,,,,.      ,####:
+    ####*  ,##############****************:,,               .####*
+     :####*#####################################**,        *####.
+       *############################################*,   :####:
+        .#############################################*,####*
+          :#####:*****#####################################.
+            *####:                  .,,,:*****###########,
+             .*####,                            *######*
+               .####* :*#######*               ,#####*
+                 *###############*,,,,,,,,::**######,
+                   *##############################:
+                     *####*****##########**#####*
+                      .####*.            :####*
+                        :####*         .#####,
+                          *####:      *####:
+                           .*####,  *####*
+                             :####*####*
+                               *######
+                                 *##
+
+         -Miranda Chaiken '16
+
+         ***/
