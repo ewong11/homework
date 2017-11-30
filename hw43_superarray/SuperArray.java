@@ -18,7 +18,7 @@
  * ListInt interface. (ListInt.java must be in same dir as this file)
  ***************************/
 
-public class SuperArray
+public class SuperArray implements ListInt
 {
 
   private int[] _data;  //underlying container
@@ -76,9 +76,10 @@ public class SuperArray
 
 
   //adds an item after the last item
-  public void add( int newVal )
+  public boolean add( int newVal )
   {
     add( _size, newVal );
+    return true;
   }
 
 
@@ -98,13 +99,15 @@ public class SuperArray
 
   //removes the item at index
   //shifts elements left to fill in newly-empted slot
-  public void remove( int index )
+  public int remove( int index )
   {
+    int temp = _data[index];
     for( int i = index; i < _size - 1; i++ ) {
       _data[i] = _data[i+1];
     }
     _data[_size-1] = 0;
     _size--;
+    return temp;
   }
 
 
@@ -119,7 +122,7 @@ public class SuperArray
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
+
     ListInt mayfield = new SuperArray();
     System.out.println("Printing empty SuperArray mayfield...");
     System.out.println(mayfield);
@@ -149,7 +152,6 @@ public class SuperArray
     mayfield.add(1,77);
     System.out.println("Printing SuperArray mayfield post-insert...");
     System.out.println(mayfield);
-      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~*/
   }//end main()
 
 
