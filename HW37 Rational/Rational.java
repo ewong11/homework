@@ -3,7 +3,7 @@
 //HW36 -- Be More Rationsl
 //2017-11-20
 
-public class Rational {
+public class Rational implements Comparable{
     // instance variables
     private int num;
     private int denom;
@@ -137,6 +137,8 @@ public class Rational {
         }
         return common;
     }
+
+    
     
     public static void main(String[] args) {
 	
