@@ -21,14 +21,14 @@
 public class SuperArray implements List
 {
 
-  private int[] _data;  //underlying container
+  private Object[] _data;  //underlying container
   private int _size;    //number of elements in this SuperArray
 
 
   //default constructor – initializes 10-item array
   public SuperArray()
   {
-    _data = new int[10];
+    _data = new Object[10];
     _size = 0;
   }
 
@@ -51,7 +51,7 @@ public class SuperArray implements List
   //double capacity of SuperArray
   private void expand()
   {
-    int[] temp = new int[ _data.length * 2 ];
+    Object[] temp = new Object[ _data.length * 2 ];
     for( int i = 0; i < _data.length; i++ )
       temp[i] = _data[i];
     _data = temp;
@@ -61,7 +61,12 @@ public class SuperArray implements List
   //accessor -- return value at specified index
   public Object get( int index )
   {
+    if (index < 0 || index >= size()) {
+      throw new IndexOutOfBoundsException("\nIt broke again lol");
+    }
     return _data[index];
+
+
   }
 
 
@@ -69,31 +74,39 @@ public class SuperArray implements List
   //           return old value at index
   public Object set( int index, Object o )
   {
-    int temp = _data[index];
+    if (index < 0 || index >= size()) {
+      throw new IndexOutOfBoundsException("\nIt broke again lol");
+    }
+    Object temp = _data[index];
     _data[index] = (Integer)o;
     return temp;
   }
 
 
   //adds an item after the last item
-  public boolean add( int newValObject o )
+  public boolean add(Object o )
   {
-    add( _size, newVal );
+    add( _size, o );
     return true;
   }
 
 
   //inserts an item at index
-  public void add( int index, int newVal )
+  public void add( int index, Object o)
   {
+    if (index < 0 || index > size()) {
+      throw new IndexOutOfBoundsException("\nindex out of bounds lol");
+    }
     //first expand if necessary
     if ( _size >= _data.length )
       expand();
       for( int i = _size; i > index; i-- ) {
         _data[i] = _data[i-1]; //each slot gets value of left neighbor
       }
-      _data[index] = newVal;
+
+      _data[index] = o;
       _size++;
+
   }
 
 
@@ -101,13 +114,16 @@ public class SuperArray implements List
   //shifts elements left to fill in newly-empted slot
   public int remove( int index )
   {
-    int temp = _data[index];
+    if (index < 0 || index >= size()) {
+      throw new IndexOutOfBoundsException("\nIt broke again lol");
+    }
+    Object temp = _data[index];
     for( int i = index; i < _size - 1; i++ ) {
       _data[i] = _data[i+1];
     }
     _data[_size-1] = 0;
     _size--;
-    return temp;
+    return (Integer)temp;
   }
 
 

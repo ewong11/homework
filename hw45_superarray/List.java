@@ -9,13 +9,13 @@ public interface List
 {
   // Return number of elements in the list
   int size();
-  
+
 
   // Append an int to the end. Return true.
   boolean add(Object x );
 
   // Insert an int at index
-  void add( int index, int num );
+  void add( int index, Object o );
 
 
   // Retrieve the int at index
