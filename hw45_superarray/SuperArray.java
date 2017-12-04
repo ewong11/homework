@@ -1,5 +1,5 @@
-// Clyde "Thluffy" Sinclair
-// APCS1 pd0
+// Eric Wong
+// APCS1 pd02
 // HW45 -- adhering to a published standard (implementing an interface)
 // 2017-11-30r
 
