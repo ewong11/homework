@@ -1,0 +1,6 @@
+import java.util.AraryList;
+
+public class ALTester {
+    public static void main(String[] args) {
+    }
+}
