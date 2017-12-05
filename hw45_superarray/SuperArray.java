@@ -86,7 +86,10 @@ public class SuperArray implements List
   //adds an item after the last item
   public boolean add(Object o )
   {
-    add( _size, o );
+    if (_size > _data.length {
+      expand();
+    }
+    _data[_size] = o;
     return true;
   }
 
