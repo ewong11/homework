@@ -1,3 +1,7 @@
+//Eric WOng
+//APCS pd02
+//hw47 -- ascending
+//2017-12-6
 /********************************
  * class OrderedArrayList
  * wrapper class for ArrayList.
@@ -40,7 +44,6 @@ public class OrderedArrayList
 
   public int size()
   {
-
     return _data.size();
   }
 
@@ -53,8 +56,32 @@ public class OrderedArrayList
 
   public void add(Comparable newVal)
   {
-    _data.add(newVal);
-  }
+
+    if (_data.size() == 0) {
+      _data.add(newVal);
+      System.out.println(_data);
+    }
+    else {
+    for (int i = 0; i < _data.size() ; i++) {
+      if (_data.get(i).compareTo(newVal) >= 0) {
+        _data.add(i, newVal);
+        System.out.println(_data + "h");
+        break;
+      }
+      else
+      {
+        //for (int s = 0; i < _data.size() ; s++) {
+          if (newVal.compareTo(_data.get(i)) < 0) {
+        _data.add(i, newVal);
+        System.out.println(_data + "j");
+}
+        break;
+      }
+      }
+    }
+}
+
+
 
 
 
@@ -64,8 +91,8 @@ public class OrderedArrayList
 
     OrderedArrayList Franz = new OrderedArrayList();
     // testing linear search
-    for( int i = 0; i < 15; i++ )
-      Franz.add( (int)( 50+i ) );
+    for( int i = 0; i < 15; i++ ){
+      Franz.add( (int)( 50 * Math.random() ) );}
     System.out.println( Franz );
 
     //check for sorted-ness
