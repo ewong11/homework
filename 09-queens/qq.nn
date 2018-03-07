@@ -1,0 +1,12 @@
+//Eric Wong
+// APCS2 pd8
+// HW09- Yaaasss Queens
+// 2018-02-26
+
+I think all cases are solvable except 3X3 because I tested each one out and managed to find solutions.
+there are multiple solutions for each case, and they can be found through rotations and reflections
+distinct solutions will have to be found manually by guess and check
+some placements can be found by moving as a knight would - 2 across + 1 down or up
+each row and column will only have one queen
+
+

@@ -1,0 +1,15 @@
+//Eric Wong
+//APCS2 -p8
+//HW11 - Get on the Bus
+//2018-03-01
+
+1. Place a knight at any space on the board
+
+2. Moving in an 'L' formation (2 down or up and 1 the other direction), find another possible spot
+  a.if that spot is open, place knight there
+    repeat step 2 with new position of knight(recursion)
+  b.if that spot is not open, try another spot
+    repeat step 2
+  if there are no open spots,
+    remove knight
+    repeat step 2 (with the knight before this)
