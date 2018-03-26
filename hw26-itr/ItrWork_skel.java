@@ -30,7 +30,7 @@ public class ItrWorkAL
 	Iterator it = L.iterator();
 	while (it.hasNext()){
 	    i = (Integer) it.next();
-	    if(str.equals(key)) {
+	    if(i.equals(key)) {
 		return true;
 	    }
 	    return false;
@@ -54,13 +54,14 @@ public class ItrWorkAL
     public static List<Integer> oddsB( List<Integer> L ) 
     { 
 	List retL;
-       for (int i: L) {
-	  if (i%2 == 0) {
-	      retL.add(i);  
-	 }
-       }
-       return retL;
+	Iterator it = L.iterator();
+	while (it.hasNext()){
+	    i = (Integer) it.next();
+	    if(i%2 != 0)) {
+	    retL.add(i);
+	    }
     }
+    return retL;
     }
 
 
