@@ -69,7 +69,16 @@ public class ItrWorkAL
     //modifies L s.t. it contains no evens
     public static void removeEvens( List<Integer> L ) 
     { 
-	/*** YOUR IMPLEMENTATION HERE ***/
+        	List retL;
+	Iterator it = L.iterator();
+	while (it.hasNext()){
+	    i = (Integer) it.next();
+	    if(i%2 == 0)) {
+	    it.remove(i);
+	    }
+    }
+    return retL;
+    }
     }
 
 
