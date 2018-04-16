@@ -33,18 +33,19 @@ public class ItrWorkAL
 	Iterator it = L.iterator();
 	while (it.hasNext()){
 	    int i = (Integer) it.next();
-	    if(i.equals(key)) {
+	    if(i == key) {
 		return true;
-	    }
-	    return false;
     }
   }
+  return false;
+}
+
 
     //using FOREACH loop
     //returns a list containing the odd numbers in L
     public static List<Integer> oddsA( List<Integer> L )
     {
-	List retL;
+	List<Integer> retL = new ArrayList<Integer>();
        for (int i: L) {
 	  if (i%2 != 0) {
 	      retL.add(i);
@@ -57,7 +58,7 @@ public class ItrWorkAL
     //returns a list containing the odd numbers in L
     public static List<Integer> oddsB( List<Integer> L )
     {
-	List retL;
+	List<Integer> retL = new ArrayList<Integer>();
 	Iterator it = L.iterator();
 	while (it.hasNext()){
 	    int i = (Integer) it.next();
@@ -78,10 +79,9 @@ public class ItrWorkAL
 	while (it.hasNext()){
 	    int i = (Integer) it.next();
 	    if(i%2 == 0) {
-	    it.remove(i);
+	    it.remove();
 	    }
     }
-    return retL;
     }
 
 
@@ -96,22 +96,25 @@ public class ItrWorkAL
 
 	// TASK: write code to print the contents of ArrayList L...
 
-
+/*
 	// a) using a FOREACH loop
   String retstr = "[";
   for(int i: L){
-    retstr += "," + i;
+    retstr += i + ",";
   }
+  retstr += "]";
   System.out.println(retstr);
 
 	// b) explicitly using an iterator
   String ret = "[";
-  Interator it = L.iterator();
+  Iterator it = L.iterator();
   while(it.hasNext()){
-    ret += "," + it.Next();
+    ret += it.next() + ",";
   }
+  ret += "]";
   System.out.println(ret);
-	/*~~~~~~~~~~~~~~~m~o~v~e~~m~e~~d~o~w~n~~~~~~~~~~~~~~
+  */
+
 	System.out.println("\nTesting foundA...");
 	System.out.println("9 in L? -> " + foundA(9,L) );
 	System.out.println("13 in L? -> " + foundA(13,L) );
@@ -131,7 +134,7 @@ public class ItrWorkAL
 	System.out.println("\nTesting removeEvens...");
 	removeEvens(L);
 	for( int n : L ) System.out.println(n);
-	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
 
     }//end main
 

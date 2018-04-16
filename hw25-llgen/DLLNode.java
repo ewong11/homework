@@ -7,10 +7,10 @@
 
 public class DLLNode
 {
-  private String _cargo;    //cargo may only be of type String
+  private Object _cargo;    //cargo may only be of type String
   private DLLNode _nextNode, _prevNode; //pointers to next, prev DLLNodes
 
-    public DLLNode(String s, DLLNode next, DLLNode prev){
+    public DLLNode(Object s, DLLNode next, DLLNode prev){
 	_cargo = s;
 	_nextNode = next;
 	_prevNode = prev;
@@ -18,7 +18,7 @@ public class DLLNode
 
     //accessors
 
-    public String getCargo() {
+    public Object getCargo() {
 	return _cargo;
 }
 
@@ -32,8 +32,8 @@ public class DLLNode
 
     //mutators
 
-    public String setCargo(String s){
-	String old = _cargo;
+    public Object setCargo(Object s){
+	Object old = _cargo;
 	_cargo = s;
 	return old;
     }
@@ -51,7 +51,7 @@ public class DLLNode
     }
 
     public String toString(){
-	return _cargo;
+	return (String)_cargo;
 }
 
 }//end class DLLNode
