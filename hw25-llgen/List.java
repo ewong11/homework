@@ -1,3 +1,8 @@
+//Eric Wong
+//APCS2 p8
+//HW25 -- Generically Speaking...
+//2018-03-27
+
 /*****************************************************
  * interface List
  * Specifies actions a List must be able to perform.
@@ -8,25 +13,25 @@
  *****************************************************/
 
 
-public interface List<T> 
-{ 
+public interface List<Object>
+{
     //add element T to end of list
     //always return true
-    public boolean add( T x ); 
+    public boolean add( Object x );
 
     //insert element T at index i
-    public void add( int i, T newVal );
+    public void add( int i, Object newVal );
 
     //remove element at index i
-    public T remove( int i );
+    public Object remove( int i );
 
     //return element at index i
-    public T get( int i ); 
+    public Object get( int i );
 
     //overwrite element at index i, return old element at index i
-    public T set( int i, T x ); 
+    public Object set( int i, Object x );
 
     //return number of elements in list
-    public int size(); 
+    public int size();
 
 }//end interface List
