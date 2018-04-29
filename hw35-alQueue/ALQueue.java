@@ -17,24 +17,24 @@
  * \ \_\\//_/ /                             *
  *  ~~  ~~  ~~                              *
  ********************************************/
- 
+
 import java.util.*;
 
 public class ALQueue<Frog> implements Queue<Frog>{
 
-    /*v****INSTANCE VARIABLES****v*/ 
+    /*v****INSTANCE VARIABLES****v*/
     private ArrayList<Frog> _queue;
     private int _size;
     /*^****INSTANCE VARIABLES****^*/
-    
+
     /*v*******CONSTRUCTOR************v*/
     public ALQueue(){
 	_size = 0;
 	_queue = new ArrayList<Frog>();
     }
     /*^*******CONSTRUCTOR************^*/
-    
-    /*v*******************METHODS*********************v*/    
+
+    /*v*******************METHODS*********************v*/
     /***************************************************
      * method enqueue ( Frog x )                       *
      * Add at the back of the queue using method add() *
@@ -57,7 +57,7 @@ public class ALQueue<Frog> implements Queue<Frog>{
 	_size--;
 	return xd;
     }
-    
+
     public Frog peekFront(){
 	return _queue.get(0);
     }
@@ -66,5 +66,17 @@ public class ALQueue<Frog> implements Queue<Frog>{
 	return _size == 0;
     }
     /*^*******************METHODS*********************^*/
+    public static void main(String[] args) {
+      ALQueue<String> frogg = new ALQueue<String>();
+      frogg.enqueue("brody");
+      frogg.dequeue();
+      frogg.enqueue("i");
+      frogg.enqueue("am");
+      frogg.dequeue();
+      frogg.enqueue("a");
+      frogg.enqueue("froggo");
+      while (!frogg.isEmpty())
+        System.out.println(frogg.dequeue());
+
+    }
 } //end class ALQueue
-    
