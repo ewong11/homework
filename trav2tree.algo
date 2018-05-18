@@ -1,0 +1,17 @@
+//Eric Wong
+//APCS2 - pd08
+//HW41 -- A Tree Grows in 251
+//2018-04-30
+
+Prerequisites:
+The type of traversal (pre-order, in-order, post-order)
+we need to 2 different traversals of the same tree to reference a specific tree
+
+Algo:
+1. find the root letter.
+2. find the left-most letter, from an in or post order tree.
+3. find the subroot element of that letter (unless it is the root)
+4. build the tree up to the root by following the rules of each traversal, moving on to the next letter to create the part of the tree that would satisfy the rules of both.
+(note: this does not have to be done in order - iterate as far as you can without having to refer to another traversal. After, use each tree to build on one another - may require test and checks)
+5. repeat step 3 to complete the left sub-tree.
+6. repeat steps 2 - 4 for the right subtree to build back to the root.
